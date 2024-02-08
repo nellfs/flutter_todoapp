@@ -1,8 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_todoapp/models/task.dart';
 import 'package:flutter_todoapp/repositories/task_repository.dart';
+import 'package:flutter_todoapp/theme/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -16,11 +15,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-        useMaterial3: true,
-      ),
-      home: MyHomePage(title: 'Lista de Tarefas'),
+      theme: AppThemes.lightTheme,
+      // theme: ThemeData(
+      //   useMaterial3: true,
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+      // ),
+      home: const MyHomePage(title: 'Lista de Tarefas'),
     );
   }
 }
@@ -106,9 +106,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         hintText: 'Descrição', border: OutlineInputBorder())),
                 const SizedBox(height: 10),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).colorScheme.primary,
-                      minimumSize: const Size(double.infinity, 50)),
+                  // style: ElevatedButton.styleFrom(
+                  //     backgroundColor: Theme.of(context).colorScheme.primary,
+                  //     minimumSize: const Size(double.infinity, 50)),
                   onPressed: () => _addItem(),
                   child: const Text("Criar",
                       style: TextStyle(
